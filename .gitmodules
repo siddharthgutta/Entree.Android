@@ -1,0 +1,6 @@
+[submodule "external/Fluid-Android"]
+	path = external/Fluid-Android
+	url = https://github.com/bluejamesbond/Fluid-Android
+[submodule "external/ToggleButton"]
+	path = external/ToggleButton
+	url = https://github.com/bluejamesbond/ToggleButton

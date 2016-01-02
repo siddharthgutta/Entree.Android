@@ -1,0 +1,4 @@
+include ':fluid', ':toggle', ':shared', ':consumer', ':producer'
+
+project(':fluid').projectDir = new File(settingsDir, './external/Fluid-Android/lib')
+project(':toggle').projectDir = new File(settingsDir, './external/ToggleButton/ToggleButtonLib')
