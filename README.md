@@ -5,4 +5,4 @@
 
 ### Other
 
-- [Character Map](http://char-map.herokuapp.com/) for viewing for font icons]
+- [Character Map](http://char-map.herokuapp.com/) for viewing for font (vector) icons
