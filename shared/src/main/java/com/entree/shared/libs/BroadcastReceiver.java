@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 
 public class BroadcastReceiver extends android.content.BroadcastReceiver {
-  public static interface OnBroadcastReceiver {
-    public void onReceive(Context context, Intent intent);
+  public interface OnBroadcastReceiver {
+    void onReceive(Context context, Intent intent);
   }
 
   private OnBroadcastReceiver mOnBroadcastReceiver;

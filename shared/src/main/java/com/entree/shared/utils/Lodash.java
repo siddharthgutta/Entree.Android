@@ -268,7 +268,7 @@ public class Lodash {
 
   public static <A, C> C reduce(Iterable<A> a, Mapper<C, A, C> reducer, C start) {
     final Object[] m = {start};
-    Lodash.each(a, t -> m[0] = (C) reducer.apply((C) m[0], t));
+    Lodash.each(a, t -> m[0] = reducer.apply((C) m[0], t));
     return (C) m[0];
   }
 
@@ -426,15 +426,15 @@ public class Lodash {
   }
 
   public interface Mapper<A, B, C> {
-    public C apply(A a, B b);
+    C apply(A a, B b);
   }
 
-  public static interface ResultCallback2<T, V> {
-    public void onResult(T t, V v);
+  public interface ResultCallback2<T, V> {
+    void onResult(T t, V v);
   }
 
-  public static interface ResultCallback<T> {
-    public void onResult(T t);
+  public interface ResultCallback<T> {
+    void onResult(T t);
   }
 
   private static class TimeoutEvent {

@@ -1,5 +1,6 @@
-<manifest package="com.entree.consumer"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+  package="com.entree.consumer"
+  xmlns:android="http://schemas.android.com/apk/res/android">
 
   <application
     android:allowBackup="true"

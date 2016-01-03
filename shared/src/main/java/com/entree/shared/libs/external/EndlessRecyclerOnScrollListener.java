@@ -20,8 +20,8 @@ public class EndlessRecyclerOnScrollListener extends RecyclerView.OnScrollListen
     this.mLinearLayoutManager = linearLayoutManager;
   }
 
-  public static interface OnLoadMoreListener {
-    abstract void onLoadMore(int current_page);
+  public interface OnLoadMoreListener {
+    void onLoadMore(int current_page);
   }
 
   public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {

@@ -1,6 +1,9 @@
 package com.entree.consumer.activities;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.entree.consumer.R;
 import com.entree.consumer.dispatcher.Dispatcher;
@@ -39,8 +42,24 @@ public class ConsumerActivity extends FluidActivity {
     mMainFragmentManager.toPreviousFragment();
   }
 
+  private void applyWindowProps() {
+    Window window = getWindow();
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+      window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+    }
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+      window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+    }
+  }
+
   @Override
   public void onActivityCreate(Bundle savedInstanceState) {
+
+    applyWindowProps();
+
     setContentView(R.layout.activity_base);
 
     try {
