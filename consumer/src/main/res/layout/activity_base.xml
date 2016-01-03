@@ -23,14 +23,10 @@
       android:scaleType="fitXY"
       android:visibility="gone"/>
 
-    <include
-      android:id="@+id/base_content_header"/>
-
     <FrameLayout
       android:id="@+id/base_content_inset"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_below="@+id/base_content_header"/>
+      android:layout_height="match_parent"/>
   </RelativeLayout>
 
   <FrameLayout

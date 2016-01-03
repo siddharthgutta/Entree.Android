@@ -47,9 +47,13 @@ public class AndroidUtils {
     };
 
     destView.setTag(fadeInTarget);
+    destView.setScaleType(ImageView.ScaleType.FIT_XY);
 
-    Picasso.with(context)
-            .load(url)
+    Picasso picasso = Picasso.with(destView.getContext());
+
+    picasso.setIndicatorsEnabled(false);
+    picasso.setDebugging(false);
+    picasso.load(url)
             .resize(width, height)
             .centerCrop()
             .priority(Picasso.Priority.LOW)
@@ -92,11 +96,13 @@ public class AndroidUtils {
 
   public static void fadeInImageView(final ImageView destView, String url, final float fadeInDuration) {
     destView.setAlpha(0f);
+    destView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-    Picasso.with(destView.getContext())
-            .load(url)
-            .fit()
-            .centerCrop()
+    Picasso picasso = Picasso.with(destView.getContext());
+
+    picasso.setIndicatorsEnabled(false);
+    picasso.setDebugging(false);
+    picasso.load(url)
             .priority(Picasso.Priority.LOW)
             .config(Bitmap.Config.RGB_565)
             .noFade()

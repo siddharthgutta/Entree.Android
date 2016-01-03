@@ -2,6 +2,9 @@
   package="com.entree.consumer"
   xmlns:android="http://schemas.android.com/apk/res/android">
 
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.VIBRATE"/>
+
   <application
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
@@ -9,6 +12,19 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
 
+    <activity
+      android:name="com.entree.consumer.activities.ConsumerActivity"
+      android:label="@string/app_name"
+      android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+
+    <service
+      android:name="com.entree.consumer.services.ConsumerService"
+      android:exported="false"/>
   </application>
 
 </manifest>
