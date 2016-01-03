@@ -30,6 +30,8 @@ import java.util.List;
 /**
  * This class is reserved for enabling functional programming
  * Add methods accordingly
+ *
+ * @bluejamesbond externalize in the future
  */
 public class Lodash {
 
