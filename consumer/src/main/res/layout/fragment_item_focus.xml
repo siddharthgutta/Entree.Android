@@ -9,21 +9,22 @@
     android:id="@+id/item_image"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_weight="0.4"
+    android:layout_weight="0.3"
     android:scaleType="centerCrop"/>
 
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_weight="0.6"
+    android:layout_weight="0.7"
     android:background="#FFFFFF"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:elevation="15dp">
 
     <RelativeLayout
       android:layout_width="match_parent"
-      android:layout_height="120dp"
+      android:layout_height="145dp"
       android:background="#000">
 
       <ImageView
@@ -32,14 +33,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
-        android:alpha="0.5"
+        android:alpha="0.35"
         android:scaleType="fitXY"/>
 
       <LinearLayout
+        android:id="@+id/item_tags"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="35dp"
+        android:orientation="horizontal"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="20dp">
@@ -47,8 +48,48 @@
         <com.entree.shared.views.FontTextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:background="@drawable/pill_solid_orange"
+          android:letterSpacing="0.08"
+          android:paddingBottom="3dp"
+          android:paddingLeft="10dp"
+          android:paddingRight="10dp"
+          android:paddingTop="3dp"
+          android:text="VEGS"
+          android:textColor="@android:color/white"
+          android:textSize="11sp"
+          ext:ft_customFont="fonts/proxima-nova-regular.otf"/>
+
+        <com.entree.shared.views.FontTextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="5dp"
+          android:background="@drawable/pill_bordered_white"
+          android:letterSpacing="0.08"
+          android:paddingBottom="3dp"
+          android:paddingLeft="8dp"
+          android:paddingRight="8dp"
+          android:paddingTop="3dp"
+          android:text="ONIONS"
+          android:textColor="@android:color/white"
+          android:textSize="11sp"
+          ext:ft_customFont="fonts/proxima-nova-regular.otf"/>
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_tags"
+        android:orientation="vertical"
+        android:paddingBottom="35dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
+
+        <com.entree.shared.views.FontTextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:text="Tahoe Angus Burger"
-          android:textColor="#FFF"
+          android:textColor="@android:color/white"
           android:textSize="30sp"
           ext:ft_customFont="fonts/proxima-nova-bold.otf"/>
 
@@ -56,7 +97,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="Hoppdoddy's Burger"
-          android:textColor="#96ffffff"
+          android:textColor="@android:color/white"
           android:textSize="20sp"
           ext:ft_customFont="fonts/proxima-nova-regular.otf"/>
 
@@ -67,35 +108,75 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center_horizontal"
-      android:layout_marginTop="-25dp"
+      android:layout_marginTop="-30dp"
       android:background="@drawable/big_button_bg_normal"
-      android:elevation="10dp"
-      android:paddingBottom="15dp"
-      android:paddingLeft="25dp"
-      android:paddingRight="25dp"
-      android:paddingTop="15dp">
+      android:elevation="15dp"
+      android:paddingLeft="16dp"
+      android:paddingTop="8dp"
+      android:paddingRight="8dp"
+      android:paddingBottom="8dp">
 
       <com.entree.shared.views.FontTextView
         android:id="@+id/order_now_button_left_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@+id/order_now_button_right_text"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="8dp"
         android:letterSpacing="0.08"
         android:text="ORDER"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
-        ext:ft_customFont="fonts/proxima-nova-bold.otf"/>
+        android:textSize="20sp"
+        ext:ft_customFont="fonts/proxima-nova-bold.otf"
+        android:textIsSelectable="false"/>
 
       <com.entree.shared.views.FontTextView
         android:id="@+id/order_now_button_right_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"
+        android:layout_toRightOf="@+id/order_now_button_left_text"
         android:letterSpacing="0.08"
         android:text="NOW"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         ext:ft_customFont="fonts/proxima-nova-regular.otf"/>
+
+      <RelativeLayout
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/order_now_button_right_text"
+        android:background="@drawable/big_inner_edit_bg_normal">
+
+        <com.entree.shared.views.FontEditText
+          android:id="@+id/order_now_button_quantity"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_alignParentLeft="true"
+          android:layout_toLeftOf="@+id/order_now_button_edit_icon"
+          android:gravity="center"
+          android:text="1"
+          android:textColor="@android:color/white"
+          android:textSize="20sp"
+          ext:fe_customFont="fonts/proxima-nova-bold.otf"/>
+
+        <com.entree.shared.views.FontTextView
+          android:id="@+id/order_now_button_edit_icon"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:text=""
+          android:alpha="0.5"
+          android:textColor="@android:color/white"
+          android:textSize="15sp"
+          ext:ft_customFont="fonts/fontello.ttf"
+          android:paddingLeft="10dp"
+          android:paddingRight="20dp"
+          android:gravity="center"/>
+      </RelativeLayout>
     </RelativeLayout>
   </LinearLayout>
 </LinearLayout>

@@ -30,8 +30,8 @@ public class ItemFocusFragment extends FluidFragment<ConsumerActivity> {
 
   @Override
   public void onFragmentDidMount(ConsumerActivity activity, View view) {
-    AndroidUtils.fadeInImageView(mItemImage, "http://i.imgur.com/dYIQT6y.png", 1000);
-    AndroidUtils.applyBlurTransform(mHeaderBackdrop, "http://i.imgur.com/dYIQT6y.png", 1000, 300, 100);
+    AndroidUtils.fadeInImageView(mItemImage, "http://i.imgur.com/Jf3y82P.jpg", 1000);
+    AndroidUtils.applyBlurTransform(mHeaderBackdrop, "http://i.imgur.com/Jf3y82P.jpg", 1000, 300, 100);
   }
 
   @Override

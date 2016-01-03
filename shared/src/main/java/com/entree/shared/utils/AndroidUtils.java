@@ -105,6 +105,8 @@ public class AndroidUtils {
     picasso.load(url)
             .priority(Picasso.Priority.LOW)
             .config(Bitmap.Config.RGB_565)
+            .fit()
+            .centerCrop()
             .noFade()
             .into(destView, new Callback() {
               @Override
