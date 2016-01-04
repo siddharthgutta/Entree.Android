@@ -2,10 +2,10 @@ package com.entree.shared.test;
 
 import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
-import android.util.Log;
 
 import com.entree.shared.api.EntreeAPI;
 import com.entree.shared.modules.WebModule;
+import com.entree.shared.utils.Lodash;
 import com.orhanobut.logger.Logger;
 
 import junit.framework.Assert;
@@ -29,9 +29,10 @@ public class APITest extends ActivityInstrumentationTestCase2<Activity> {
   @Test
   public void testCreateUser() throws IOException {
     EntreeAPI rest = WebModule.getEntreeAPIInstance();
-    Call<EntreeAPI.UserResponse> responseCall = rest.createUser(new EntreeAPI.UserRequest("jim", "halpert@gsdf.com", "halpert"));
-    Response<EntreeAPI.UserResponse> response = responseCall.execute();
-    Logger.json(response.message());
-    Assert.assertTrue(true);
+    Lodash.JSONObject req = Lodash.json().puts("username", "jim", "password", "halpert", "email", "yolocat");
+    Call<Lodash.JSONObject> responseCall = rest.createUser(req);
+    Response<Lodash.JSONObject> response = responseCall.execute();
+    Logger.json(response.body().toString());
+    Assert.assertEquals("jim", response.body().get("data", Lodash.json()).get("username", "none"));
   }
 }

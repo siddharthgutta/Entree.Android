@@ -16,7 +16,6 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -75,7 +74,9 @@ public class Lodash {
         } else if (def instanceof String) {
           t = object.getString(key);
         } else if (def instanceof JSONObject) {
-          t = object.getJSONObject(key);
+          t = new JSONObject(object.getJSONObject(key));
+        } else if (def instanceof org.json.JSONObject) {
+          t = new JSONObject(object.getJSONObject(key));
         } else if (def instanceof JSONArray) {
           t = object.getJSONArray(key);
         } else if (def instanceof Boolean) {
@@ -457,5 +458,99 @@ public class Lodash {
 
   public static <T> String toJSON(T object) {
     return ReflectionToStringBuilder.toString(object, ToStringStyle.JSON_STYLE);
+  }
+
+  public static class JSONObject extends org.json.JSONObject {
+
+    public JSONObject() {
+      super();
+    }
+
+    public JSONObject(org.json.JSONObject obj) throws JSONException {
+      this(obj.toString());
+    }
+
+    public JSONObject(String str) throws JSONException {
+      super(str);
+    }
+
+    @Override
+    public JSONObject put(String name, boolean value) {
+      try {
+        super.put(name, value);
+      } catch (Exception e) {
+        // ignore
+      }
+
+      return this;
+    }
+
+    @Override
+    public JSONObject put(String name, Object value) {
+      try {
+        super.put(name, value);
+      } catch (Exception e) {
+        // ignore
+      }
+
+      return this;
+    }
+
+    @Override
+    public JSONObject put(String name, int value) {
+      try {
+        super.put(name, value);
+      } catch (Exception e) {
+        // ignore
+      }
+
+      return this;
+    }
+
+    @Override
+    public JSONObject put(String name, double value) {
+      try {
+        super.put(name, value);
+      } catch (Exception e) {
+        // ignore
+      }
+
+      return this;
+    }
+
+    @Override
+    public JSONObject put(String name, long value) {
+      try {
+        super.put(name, value);
+      } catch (Exception e) {
+        // ignore
+      }
+
+      return this;
+    }
+
+    public JSONObject puts(Object... args) {
+      for (int i = 1; i < args.length; i += 2) {
+        put((String) args[i - 1], args[i]);
+      }
+
+      return this;
+    }
+
+    public <T> T get(String property, @NonNull T def) {
+      return Lodash.select(this, property, def);
+    }
+  }
+
+  public static JSONObject jsonObject() {
+    return new JSONObject();
+  }
+
+  public static JSONObject json() {
+    return jsonObject();
+  }
+
+  public static JSONArray jsonArray() {
+    return new JSONArray();
   }
 }
